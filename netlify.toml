@@ -1,0 +1,5 @@
+[[headers]]
+  for = "/*"  # This applies to all paths
+  [headers.values]
+    Cache-Control = "public, max-age=86400"  # Cache for 1 day
+  
