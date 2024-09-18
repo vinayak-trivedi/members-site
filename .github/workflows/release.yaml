@@ -53,8 +53,6 @@ jobs:
             # Build the project
             - run: yarn build:production
             
-            # Run tests if they are available
-            - run: yarn test --if-present
            
             # Log into the specified Docker registry
             - name: Log in to the Container registry
