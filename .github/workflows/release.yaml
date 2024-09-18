@@ -51,7 +51,7 @@ jobs:
             - run: ls -la
             
             # Install project dependencies
-            - run: npm ci || npm install  # Fallback to npm install if ci fails
+            - run: npm install  # Fallback to npm install if ci fails
             
             # Build the project
             - run: npm run build --if-present
