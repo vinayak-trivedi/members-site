@@ -1,5 +1,5 @@
 # GitHub Actions workflow for deploying a Docker image to CapRover
-name: Deploy to caprover instance.
+name: Deploy to CapRover instance.
 
 # Global environment variables used throughout the workflow
 env:
@@ -8,11 +8,14 @@ env:
     DOCKERFILE: ./Dockerfile # Path to Dockerfile
     DOCKER_REGISTRY: ghcr.io # Docker registry to which the image will be pushed
 
-# Trigger the workflow on push to the main branch
+# Trigger the workflow on push to any branch and on pull requests
 on:
     push:
         branches:
-            - '*'
+            - '*' # This will trigger on all branches
+    pull_request:
+        branches:
+            - '*' # This will trigger on pull requests to all branches
 
 # Define the jobs in the workflow
 jobs:
