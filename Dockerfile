@@ -1,12 +1,13 @@
     FROM node:16-alpine
-    RUN ls -la .
     # Set working directory
 
     ENV NODE_ENV=production
     # Copy package.json and package-lock.json (if available)
     COPY package*.json ./
 
+    RUN yarn install
 
+    RUN yarn build:production
     # Copy the built application files
 
     COPY ./.next ./.next
@@ -19,4 +20,4 @@
     EXPOSE 3000
 
     # Start the Node.js server
-    CMD ["npm", "run", "start"]
+    CMD ["yarn", "start"]
