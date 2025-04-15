@@ -8,6 +8,19 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async headers() {
+    return [
+      {
+        source: '/:memberprofile*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 's-maxage=60, stale-while-revalidate=30',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
